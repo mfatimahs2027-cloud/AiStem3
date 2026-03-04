@@ -5,63 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact – Animals from Land, Mountains and the Sea</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- CONTACT PAGE EXTRA STYLES -->
-  <style>
-    /* Center and style the form */
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      border: none;
-    }
-
-    .contact-form button {
-      padding: 10px 20px;
-      border: none;
-      background: purple;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .contact-form button:hover {
-      background: #b300b3;
-    }
-
-    /* Theme toggle button */
-    .theme-toggle {
-      margin-left: 15px;
-      cursor: pointer;
-      font-size: 20px;
-      background: none;
-      border: none;
-      color: inherit;
-    }
-
-    /* Purple theme */
-    body.purple-theme {
-      background-color: #e6d6ff;
-      color: black;
-    }
-  </style>
 </head>
+
 <body>
 
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
+
       <div class="logo">
         <a href="index.html">Animals from Land, Mountains and the Sea</a>
       </div>
@@ -76,23 +27,25 @@
       </nav>
 
       <!-- THEME TOGGLE BUTTON -->
-      <button class="theme-toggle">🌙</button>
+      <button class="theme-toggle">🌑</button>
+
     </div>
   </header>
 
   <main>
 
-    <!-- PAGE TITLE SECTION -->
-    <section class="page-title section">
+    <!-- PAGE TITLE -->
+    <section class="page-title section fade-in scroll-animate">
       <div class="container">
         <h1>Contact</h1>
         <p>Have a question or want to reach out? Send a message below.</p>
       </div>
     </section>
 
-    <!-- CONTACT FORM SECTION -->
-    <section class="contact-section section">
+    <!-- CONTACT FORM -->
+    <section class="contact-section section slide-up scroll-animate">
       <div class="container">
+
         <form class="contact-form">
 
           <div class="form-group">
@@ -118,6 +71,7 @@
           <button type="submit">Submit</button>
 
         </form>
+
       </div>
     </section>
 
@@ -130,12 +84,45 @@
     </div>
   </footer>
 
-  <!-- THEME TOGGLE SCRIPT -->
+  <!-- THEME TOGGLE + SCROLL ANIMATIONS -->
   <script>
+    /* THEME TOGGLE */
     const themeToggle = document.querySelector('.theme-toggle');
+
+    function updateThemeIcon() {
+      if (document.body.classList.contains('purple-theme')) {
+        themeToggle.textContent = '🌕';
+      } else {
+        themeToggle.textContent = '🌑';
+      }
+    }
+
+    updateThemeIcon();
+
     themeToggle.addEventListener('click', () => {
       document.body.classList.toggle('purple-theme');
+      updateThemeIcon();
     });
+
+    /* PAGE LOAD ANIMATION */
+    document.body.classList.add('page-load');
+
+    /* SCROLL ANIMATIONS */
+    const animatedElements = document.querySelectorAll('.scroll-animate');
+
+    function checkVisibility() {
+      animatedElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        } else {
+          el.classList.remove('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkVisibility);
+    window.addEventListener('load', checkVisibility);
   </script>
 
 </body>
