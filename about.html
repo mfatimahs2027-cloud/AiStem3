@@ -6,6 +6,7 @@
   <title>About – Animals from Land, Mountains and the Sea</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -14,6 +15,7 @@
       <div class="logo">
         <a href="index.html">Animals from Land, Mountains and the Sea</a>
       </div>
+
       <nav class="main-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -22,21 +24,24 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+
+      <!-- THEME TOGGLE BUTTON -->
+      <button class="theme-toggle">🌑</button>
     </div>
   </header>
 
   <main>
 
     <!-- PAGE TITLE SECTION -->
-    <section class="page-title section">
+    <section class="page-title section fade-in scroll-animate">
       <div class="container">
         <h1>About This Project</h1>
         <p>A journey through the animals of the land, mountains, and sea.</p>
       </div>
     </section>
 
-    <!-- TWO COLUMN SECTION 1 (IMAGE LEFT) -->
-    <section class="about-section section">
+    <!-- SECTION 1 -->
+    <section class="about-section section slide-left scroll-animate">
       <div class="container two-column">
         <div class="col image-col">
           <img src="https://i.pinimg.com/1200x/1f/68/8d/1f688dc769501aafd367b171c9d22515.jpg" alt="Wildlife from the land">
@@ -56,8 +61,8 @@
       </div>
     </section>
 
-    <!-- TWO COLUMN SECTION 2 (IMAGE RIGHT) -->
-    <section class="about-section section">
+    <!-- SECTION 2 -->
+    <section class="about-section section slide-right scroll-animate">
       <div class="container two-column">
         <div class="col text-col">
           <h2>Life in the Mountains and the Sea</h2>
@@ -78,8 +83,8 @@
       </div>
     </section>
 
-    <!-- NEW SECTION 3 — WILD CATS (IMAGE LEFT) -->
-    <section class="about-section section">
+    <!-- SECTION 3 -->
+    <section class="about-section section slide-left scroll-animate">
       <div class="container two-column">
         <div class="col image-col">
           <img src="https://i.pinimg.com/1200x/0d/e9/5c/0de95cf1b2b9d29a556a083051537634.jpg" alt="Wild cats">
@@ -99,8 +104,8 @@
       </div>
     </section>
 
-    <!-- NEW SECTION 4 — GOATS (IMAGE LEFT) -->
-    <section class="about-section section">
+    <!-- SECTION 4 -->
+    <section class="about-section section slide-right scroll-animate">
       <div class="container two-column">
         <div class="col image-col">
           <img src="https://i.pinimg.com/1200x/c9/5a/92/c95a922e6fa8dba5c8aa9da1d5306796.jpg" alt="Mountain goats">
@@ -119,8 +124,8 @@
       </div>
     </section>
 
-    <!-- NEW SECTION 5 — SHARKS (IMAGE RIGHT) -->
-    <section class="about-section section">
+    <!-- SECTION 5 -->
+    <section class="about-section section slide-left scroll-animate">
       <div class="container two-column">
         <div class="col text-col">
           <h2>Sharks in the Water</h2>
@@ -139,8 +144,8 @@
       </div>
     </section>
 
-    <!-- NEW SECTION 6 — TEXT ONLY -->
-    <section class="about-section section">
+    <!-- SECTION 6 -->
+    <section class="about-section section fade-in scroll-animate">
       <div class="container">
         <h2>These Animals Are at Risk</h2>
         <p>
@@ -162,6 +167,47 @@
       <p>© 2026 Animals from Land, Mountains and the Sea. By Mahnoor Fatima All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- THEME TOGGLE + SCROLL ANIMATIONS -->
+  <script>
+    /* THEME TOGGLE */
+    const themeToggle = document.querySelector('.theme-toggle');
+
+    function updateThemeIcon() {
+      if (document.body.classList.contains('purple-theme')) {
+        themeToggle.textContent = '🌕';
+      } else {
+        themeToggle.textContent = '🌑';
+      }
+    }
+
+    updateThemeIcon();
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('purple-theme');
+      updateThemeIcon();
+    });
+
+    /* PAGE LOAD ANIMATION */
+    document.body.classList.add('page-load');
+
+    /* SCROLL ANIMATIONS */
+    const animatedElements = document.querySelectorAll('.scroll-animate');
+
+    function checkVisibility() {
+      animatedElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        } else {
+          el.classList.remove('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkVisibility);
+    window.addEventListener('load', checkVisibility);
+  </script>
 
 </body>
 </html>
