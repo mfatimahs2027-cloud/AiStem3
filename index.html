@@ -6,16 +6,14 @@
   <title>Home - Animals from Land, Mountains and the Sea</title>
   <link rel="stylesheet" href="style.css">
 
-  <!-- ADDED CSS ADJUSTMENTS -->
+  <!-- PAGE-SPECIFIC ADJUSTMENTS -->
   <style>
-    /* Center the 3 slides */
     .slide-container {
       display: flex;
       justify-content: center;
       gap: 20px;
     }
 
-    /* Slide title smaller + top-left */
     .slide-title {
       position: absolute;
       top: 10px;
@@ -31,66 +29,58 @@
       position: relative;
     }
 
-    /* Move nav buttons to the left */
     .main-nav ul {
       display: flex;
       justify-content: flex-start;
       gap: 20px;
     }
-
-    /* Theme toggle colors */
-    body {
-      background-color: black;
-      color: white;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    .purple-theme {
-      background-color: #e6d6ff;
-      color: black;
-    }
   </style>
 </head>
+
 <body>
 
   <!-- HEADER -->
-  <div class="header-inner">
-  <div class="logo">
-    <a href="index.html">Animals from Land, Mountains and the Sea</a>
-  </div>
+  <header class="site-header">
+    <div class="container header-inner">
 
-  <nav class="main-nav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+      <div class="logo">
+        <a href="index.html">Animals from Land, Mountains and the Sea</a>
+      </div>
 
-  <div class="hamburger">☰</div>
-  <button class="theme-toggle">🌙</button>
-</div>
-
-<nav class="mobile-nav">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </nav>
+
+      <div class="hamburger">☰</div>
+
+      <!-- THEME TOGGLE BUTTON -->
+      <button class="theme-toggle">🌑</button>
+
     </div>
   </header>
 
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
   <main>
 
-    <!-- HERO SLIDER WITH CLICKABLE MODAL SLIDES -->
-    <section class="hero-slider section">
+    <!-- HERO SLIDER -->
+    <section class="hero-slider section fade-in scroll-animate">
       <div class="container slide-container">
 
         <!-- SLIDE 1 -->
-        <div class="slide" data-title="Big Cats"
+        <div class="slide"
+          data-title="Big Cats"
           data-image="https://i.pinimg.com/1200x/11/0c/2f/110c2f9786ede37dc2e3241f49c88909.jpg"
           data-content="
           <h3>Big Cats</h3>
@@ -120,13 +110,13 @@
           <p><strong>Cheetah</strong> — Speedy, nervous sprinter.</p>
           <p><strong>Cougar</strong> — Stealthy, quiet explorer.</p>
           ">
-
           <img src="https://i.pinimg.com/1200x/11/0c/2f/110c2f9786ede37dc2e3241f49c88909.jpg" alt="">
           <div class="slide-title">Big Cats</div>
         </div>
 
         <!-- SLIDE 2 -->
-        <div class="slide" data-title="The GOAT"
+        <div class="slide"
+          data-title="The GOAT"
           data-image="https://i.pinimg.com/1200x/73/ae/10/73ae1099c4f09c96269c8cc70d2b8589.jpg"
           data-content="
           <h3>The GOAT</h3>
@@ -150,13 +140,13 @@
 
           <p>Markhor have huge spiral horns up to 5 feet long.</p>
           ">
-
           <img src="https://i.pinimg.com/1200x/73/ae/10/73ae1099c4f09c96269c8cc70d2b8589.jpg" alt="">
           <div class="slide-title">The GOAT</div>
         </div>
 
         <!-- SLIDE 3 -->
-        <div class="slide" data-title="Sharks"
+        <div class="slide"
+          data-title="Sharks"
           data-image="https://i.pinimg.com/736x/dd/e5/7d/dde57d61378e6688bd1f2445ea6fceae.jpg"
           data-content="
           <h3>Sharks</h3>
@@ -194,7 +184,6 @@
             <li>Greenland Shark — lives hundreds of years</li>
           </ul>
           ">
-
           <img src="https://i.pinimg.com/736x/dd/e5/7d/dde57d61378e6688bd1f2445ea6fceae.jpg" alt="">
           <div class="slide-title">Sharks</div>
         </div>
@@ -206,7 +195,6 @@
     <div id="modal" class="modal">
       <div class="modal-content">
         <span class="close-btn">&times;</span>
-
         <img id="modal-image" src="" alt="">
         <div class="modal-text">
           <h2 id="modal-title"></h2>
@@ -216,7 +204,7 @@
     </div>
 
     <!-- ABOUT PREVIEW -->
-    <section class="about-preview section">
+    <section class="about-preview section slide-left scroll-animate">
       <div class="container">
         <div class="about-content">
           <div class="about-image">
@@ -232,7 +220,7 @@
     </section>
 
     <!-- SERVICES -->
-    <section class="services section">
+    <section class="services section slide-up scroll-animate">
       <div class="container">
         <h2>Services</h2>
         <div class="services-grid">
@@ -253,7 +241,7 @@
     </section>
 
     <!-- GALLERY PREVIEW -->
-    <section class="gallery-preview section">
+    <section class="gallery-preview section fade-in scroll-animate">
       <div class="container">
         <h2>Gallery Preview</h2>
         <div class="gallery-grid">
@@ -269,7 +257,7 @@
     </section>
 
     <!-- CTA -->
-    <section class="cta section">
+    <section class="cta section slide-right scroll-animate">
       <div class="container">
         <h2>Ready to Work Together?</h2>
         <p>Contact me for projects or collaborations.</p>
@@ -278,7 +266,7 @@
     </section>
 
     <!-- CONTACT PREVIEW -->
-    <section class="contact-preview section">
+    <section class="contact-preview section slide-up scroll-animate">
       <div class="container">
         <h2>Quick Contact</h2>
         <form>
@@ -311,7 +299,6 @@
     slides.forEach(slide => {
       slide.addEventListener('click', () => {
         modal.style.display = 'flex';
-
         modalImg.src = slide.dataset.image;
         modalTitle.textContent = slide.dataset.title;
         modalBody.innerHTML = slide.dataset.content;
@@ -327,13 +314,45 @@
     });
   </script>
 
-  <!-- THEME TOGGLE SCRIPT -->
+  <!-- THEME TOGGLE + SCROLL ANIMATIONS -->
   <script>
+    /* THEME TOGGLE */
     const themeToggle = document.querySelector('.theme-toggle');
+
+    function updateThemeIcon() {
+      if (document.body.classList.contains('purple-theme')) {
+        themeToggle.textContent = '🌕';
+      } else {
+        themeToggle.textContent = '🌑';
+      }
+    }
+
+    updateThemeIcon();
 
     themeToggle.addEventListener('click', () => {
       document.body.classList.toggle('purple-theme');
+      updateThemeIcon();
     });
+
+    /* PAGE LOAD ANIMATION */
+    document.body.classList.add('page-load');
+
+    /* SCROLL ANIMATIONS */
+    const animatedElements = document.querySelectorAll('.scroll-animate');
+
+    function checkVisibility() {
+      animatedElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        } else {
+          el.classList.remove('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkVisibility);
+    window.addEventListener('load', checkVisibility);
   </script>
 
 </body>
